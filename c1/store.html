@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/store.css">
   </head>
   <body>
+    <div id="navbar"></div>
+    <button id="sort_lth">sort_lth</button>
+
+    <button id="sort_htl">sort_htl</button>
+
+    <select  id="select_filter" name="brands">
+      <option value="iphone">apple</option>
+      <option value="oneplus">oneplus</option>
+      <option value="nokia">nokia</option>
+    </select>
+    
+    <div id="mobile_list"></div>
     <!-- On store page append all mobiles inside div with Id :- "mobile_list",
 Each mobile card will have class :- "mobile"
 every remove button will have class :- "remove"
@@ -24,3 +38,4 @@ c. nokia
 -->
   </body>
 </html>
+<script src="/scripts/store.js" type="module"> </script>

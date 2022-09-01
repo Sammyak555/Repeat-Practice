@@ -1,0 +1,19 @@
+.mobile{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 8px;
+    width: 200px;
+    height: 400px;
+}
+.mobile>img{
+    height: 50%;
+}
+#mobile_list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
