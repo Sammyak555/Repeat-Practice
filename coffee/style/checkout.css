@@ -1,0 +1,28 @@
+#form{
+    width:50%;
+    margin:auto;
+    padding: 50px 50px;
+    
+}
+#form>input{
+    display: block;
+    height:40px;
+    width:50%;
+    margin: auto;
+    margin-top: 40px;
+    border:1px solid grey;
+    border-radius: 10px;
+
+
+}
+#confirm{
+    background-color: rgb(8, 229, 214);
+    color:black;
+    font-weight: bold;
+    height: 50px;
+    width:200px;
+    border: none;
+    border-radius: 7px;
+    display:block;
+    margin:auto;
+}
