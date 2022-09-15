@@ -1,0 +1,26 @@
+#cart{
+    margin:auto;
+    width:90%;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 500px;
+    grid-gap:30px 30px;
+
+}
+#cart>div{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+      padding:20px;
+    font-size: 20px;
+
+    text-align: center;
+}
+#cart>div>img{
+    width:200px;
+    height:200px;
+    margin:auto;
+}
+#checkout{
+    margin-top: 20px;
+    background-color: blue;
+    color:white;
+}

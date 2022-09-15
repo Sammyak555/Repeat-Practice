@@ -1,0 +1,15 @@
+input{
+    margin-bottom: 50px;
+    display:block;
+    margin: auto;
+}
+input:last-child{
+    width:10%;
+    display:block;
+    margin: auto;
+    margin-top: 20px;
+}
+form{
+    width:50%;
+    margin:auto;
+}
