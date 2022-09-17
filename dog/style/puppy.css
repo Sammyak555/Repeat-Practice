@@ -1,0 +1,10 @@
+#doggy{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+#doggy>div>img{
+    width: 120px;
+    height: 110px;
+}

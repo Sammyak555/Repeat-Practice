@@ -1,0 +1,18 @@
+#navbar{
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    margin: auto;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 8px;
+}
+#navbar>div{
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
