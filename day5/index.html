@@ -4,8 +4,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #detailsform>div{
+            width: 300px;
+            
+        }
+       
+    </style>
 </head>
 <body>
-    
+    <div id="container">
+        <form id="detailsform">
+            <div >
+                <label for="">Billing Name</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="">Address 1</label>
+                <input type="text" id="address1">
+            </div>
+            <div>
+                <label for="">Address 2</label>
+                <input type="text" id="address2">
+            </div>
+            <div>
+                <label for="">City</label>
+                <input type="text" id="city">
+            </div>
+            <div>
+                <label for="">State</label>
+                <select name="" id="statename">
+                    <!-- <option value="">MP</option>
+                    <option value="">MH</option>
+                    <option value="">DL</option> -->
+                </select>
+            </div>
+            <div>
+                <label for="">Pin Code</label>
+                <input type="number" id="pin">
+            </div>
+            <div>
+                <label for="">Contact Number</label>
+                <input type="number" id="phone">
+            </div>
+            <div>
+                <label for="">Billing Name</label>
+                <input type="text" id="bill">
+            </div>
+            <div>
+                <label for="">Payment mode</label>
+                <select name="" id="paymentmethod">
+                    <option value="cod">COD</option>
+                    <option value="upi">UPI</option>
+                    <option value="card">CardPayment</option>
+                </select>
+            </div>
+            <div id="carddetails">
+                <!--  -->
+
+            </div>
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+    <!-- 1.create dynamic state Name
+    2.conditional rendering of card input -->
 </body>
 </html>
+<script src="/scripts/detailsoops.js"></script>

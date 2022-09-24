@@ -20,6 +20,6 @@ function append(data){
         let image=document.createElement("img");
         image.src=el;
         div.append(image);
-        container.append(div)
+        container.append(div);
     })
 }

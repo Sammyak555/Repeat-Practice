@@ -48,6 +48,7 @@ class user{
         {
             alert("Login successful!");
             localStorage.setItem("logperson",JSON.stringify(filter1));
+            window.location.href="/index.html"
         }
        else{
         alert("wrong password or email")
