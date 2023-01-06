@@ -2,7 +2,11 @@
 let arr=[]
 document.querySelector('form').addEventListener('submit',submitform)
 let container=document.getElementById('container')
-
+let userarr=JSON.parse(localStorage.getItem('userarr'))||[]
+window.addEventListener('load',()=>{
+    console.log(userarr)
+    displaytable(userarr)
+})
 function submitform(e){
     e.preventDefault();
     let name=document.getElementById('name').value
@@ -14,14 +18,15 @@ function submitform(e){
         usermbl:mbl,
         usercourse:course
     }
-    arr.push(userObj)
+    userarr.push(userObj)
     console.log(arr)
-    displaytable(arr)
-    
+    displaytable(userarr)
+    localStorage.setItem("userarr",JSON.stringify(userarr))  
 }
-function displaytable(arr){
+
+function displaytable(userarr){
     container.innerHTML=null
-    arr.forEach((el) => {
+    userarr.forEach((el) => {
         var tr=document.createElement("tr")
 
     var td1=document.createElement("td")
@@ -35,3 +40,4 @@ function displaytable(arr){
     container.append(tr)
     });
 }
+
