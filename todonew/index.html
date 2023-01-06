@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+<body>
+    <input type="text" name="" placeholder="add todo" id="input">
+    <button id="add">Add</button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    
+    class Todo{
+        #todos
+        constructor(){
+            this.#todos=[];
+        }
+        get items(){
+            return this.#todos;
+        }
+        set items(title){
+            const newitem={
+                    id: Date.now(),
+                    title: title,
+                    status:false,
+            }
+
+            this.#todos=[...this.#todos,newitem];
+        }
+
+        togglestatus(id){
+            this.#todos=this.#todos.map((el)=>{
+                el.id === id ? {...el,status:!el.status}:el;
+            })
+        }
+
+        deleteitem(id){
+            this.#todos=this.#todos.filter((el)=>{
+                el.id!==id;
+            })
+        }
+
+    }
+    // let todo={
+    //     title:"abc",
+    //     status:false,
+    //     id: Date.now()
+    // }
+
+
+    const list =new Todo();
+
+    window.addEventListener('load',()=>{
+        const add=document.getElementById("add");
+
+        add.onclick=()=>{
+            const text=document.getElementById("input").value;
+            list.items=(text);
+            renderdom();
+        }
+    })
+
+    //Todo Structure---
+    function todoitem({id,title,status}){
+        const div=document.createElement("div");
+        const li=document.createElement("li");
+        //toggle button
+        const btn=document.createElement("button");
+        btn.textContent="Toggle";
+        btn.onclick=()=>{
+            list.togglestatus(id);
+            renderdom();
+        }
+        //remove
+        const del=document.createElement("button");
+        del.textContent="Delete";
+        del.onclick=()=>{
+            list.deleteitem(id);
+            renderdom();
+        }
+        li.innerHTML=`${title}-${status}-${id}`;
+        div.append(li,btn,del);
+        return div;
+
+    }
+    renderdom=()=>{
+
+        let container=document.getElementById("container");
+        container.innerHTML=null;
+
+        list.items.forEach((el)=>{
+            let newitem=todoitem(el);
+            container.append(newitem);
+        })
+
+    }
+    let item={
+        title: "abc",
+        id:1,
+        status:false
+    }
+
+
+</script>

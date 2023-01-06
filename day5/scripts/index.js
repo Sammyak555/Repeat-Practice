@@ -144,8 +144,7 @@ const select=document.getElementById("paymentmethod");
         }
         console.log(payload)
         localStorage.setItem("orederdetails",JSON.stringify(payload));
-
-        window.location.href="otp.html;"
+        
     }
 
     const form=document.getElementById("detailsform");

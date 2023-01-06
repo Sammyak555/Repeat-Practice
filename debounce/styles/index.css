@@ -1,0 +1,14 @@
+#add-money{
+    margin: auto;
+    display: block;
+    width: 250px;
+
+}
+input{
+    width: 220px;
+}
+button{
+    width: 200px;
+    text-align: center;
+    margin-top: 15px;
+}

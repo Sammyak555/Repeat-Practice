@@ -8,6 +8,7 @@ let products=()=>{
 
 let append=(data)=>{
     let container=document.getElementById("products_data");
+    container.innerHTML=null;
     data.forEach((el,index) => {
         let br=document.createElement("h3");
         br.innerText=el.brand;
@@ -60,17 +61,20 @@ function srthtl()
 
 function filtgr(){
     let data=JSON.parse(localStorage.getItem("prod"));
-    let pri;
-    data.forEach((el)=>{
-         pri=el.price;
-         if(pri>=10000){
-            let container=document.getElementById("products_data");
-            container.innerHTML=null;
-            console.log(el)
-            append(data);
-         }
+    let datalist=data.filter(function(el){
+        return el.price>10000;
+    })
+   
+    append(datalist)
+    
+}
+function filtls(){
+    let data=JSON.parse(localStorage.getItem("prod"));
+    let datalist=data.filter(function(el){
+        return el.price<10000;
     })
     
-    // if(data)
+    append(datalist)
+    
 }
 
