@@ -28,14 +28,12 @@ function displaytable(userarr){
     container.innerHTML=null
     userarr.forEach((el) => {
         var tr=document.createElement("tr")
-
     var td1=document.createElement("td")
     td1.innerText=el.username
     var td2=document.createElement("td")
     td2.innerText=el.usermbl
     var td3=document.createElement("td")
     td3.innerText=el.usercourse
-
     tr.append(td1,td2,td3)
     container.append(tr)
     });
