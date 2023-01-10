@@ -1,0 +1,59 @@
+h1{
+    text-align: center;
+    color: rgb(35, 35, 172);
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+div{
+    display: flex;
+    justify-content: space-around;
+}
+form{
+    margin: auto;
+    width: 30%;
+    padding: 8%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+label{
+    font-size: 23px;
+}
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+table td,
+table th{
+    text-align: center;
+}
+table tr:nth-child(even){
+    background-color: antiquewhite;
+
+}
+table th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    color: white;
+    background-color: rgb(35, 35, 172);
+}
+input[type="text"],
+input[type="number"],
+textarea {
+width: 100%;
+resize: vertical;
+box-sizing: border-box;
+}
+*{
+    box-sizing: border-box;
+}
+input[type="submit"]{
+    color: white;
+    border-radius: 15px;
+    width: 100%;
+    font-size: 20px;
+    background-color: rgb(35, 35, 172);
+}
