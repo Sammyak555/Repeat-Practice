@@ -31,7 +31,7 @@ function myfn(e){
 
 function displaydata(emparr){
     container.innerHTML=null
-    emparr.forEach((el) => {
+    emparr.forEach((el,index) => {
        let tr= document.createElement("tr")
        let td1=document.createElement("td")
        td1.innerText=el.name
@@ -48,9 +48,27 @@ function displaydata(emparr){
        let td7=document.createElement("td")
        if(el.exp>5){
         td7.innerText="Senior"
+       }else if(el.exp>1&&el.exp<=5){
+        td7.innerText="Junior"
+       }else{
+        td7.innerText="Fresher"
        }
-       tr.append(td1,td2,td3,td4,td5,td6,td7)
+       let btn=document.createElement("button")
+       btn.innerText="Delete"
+       btn.addEventListener('click',()=>{
+        deletefn(index)
+       })
+       tr.append(td1,td2,td3,td4,td5,td6,td7,btn)
        container.append(tr)
     });
 
 }
+
+function deletefn(index){
+    console.log(emparr)
+    emparr.splice(index,1)
+    console.log(emparr)
+    localStorage.setItem("empdata",JSON.stringify(emparr))
+    window.location.reload()
+}
+console.log(emparr)
