@@ -13,9 +13,11 @@ const getprods = (setData) => {
 const Products = () => {
   const [data, setData] = useState([])
   const [jsdata,setJsdata] = useState([])
+  const [change,setChange] = useState(false)
+
   useEffect(() => {
     getprods(setData)
-  }, [setData])
+  }, [setData,change])
   // console.log(data)
 
   // const handleChange=(e)=>{
@@ -24,9 +26,11 @@ const Products = () => {
   //   }
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(jsdata)
-    axios.post('http://localhost:5000/face/addjson',jsdata)
-    .then((res)=>console.log(res.data))
+    axios.post('http://localhost:5000/face/addjson',(JSON.parse(jsdata)))
+    .then((res)=>{
+      setChange(!change)
+      console.log(res.data)
+    })
     .catch((err)=>console.log(err))
   }
 
