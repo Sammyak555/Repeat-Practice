@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Alert, AlertDescription, AlertIcon, AlertTitle,  Button, Center, Container, FormControl, FormLabel, Input } from "@chakra-ui/react";
-import { Link, useNavigate } from 'react-router-dom';
+import {   Button, Center, Container, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../css/Login.css"
 
 const Login = () => {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const Login = () => {
         .then((res)=>{
             if(res.data.token){
                 console.log(res.data)
-                navigate('/products')
+                navigate('/panel')
             }else{
                 alert("Invalid cred !")
             }
@@ -28,8 +29,8 @@ const Login = () => {
 
 
   return (
-    <div style={{marginTop:"60px"}}>
-         <Container w={'300px'} h="340px" border={'5px solid grey'}>
+    <div className='lgnpg' >
+         <Container w={'300px'} h="340px" bgColor={"white"} border={'5px solid grey'}>
         <form onSubmit={handleSubmit}>
           <br />
           <Center><FormLabel fontSize={'20px'} color={"gray.600"}>Admin Login</FormLabel> </Center>
