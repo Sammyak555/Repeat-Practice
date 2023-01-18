@@ -1,0 +1,8 @@
+.panelnav{
+    border: 1px solid red;
+    display: flex;
+    margin: auto;
+    width: 60%;
+    justify-content: space-evenly;
+    margin-top: 60px;
+}
