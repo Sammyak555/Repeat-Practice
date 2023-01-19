@@ -1,41 +1,80 @@
-import { Textarea } from '@chakra-ui/react'
+import { Textarea, useToast } from '@chakra-ui/react'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { json } from 'react-router-dom'
+import React, { useCallback, useEffect, useState } from 'react'
+import Searchbar from '../Components/Searchbar'
 import "../css/Products.css"
 import { SingleProd } from './SingleProd'
 
-const getprods = (setData) => {
-  return axios.get(`http://localhost:5000/face/`)
-    .then((res) => setData(res.data))
-    .then((err) => console.log(err))
-}
+
 const Products = () => {
+  const [optval,setOptval] =useState('')
+  const [query,setQuery] = useState('')
+  const [suggest,setSuggest] = useState([])
   const [data, setData] = useState([])
   const [jsdata,setJsdata] = useState([])
   const [change,setChange] = useState(false)
+  const toast = useToast()
 
+  const getprods = () => {
+    return axios.get(`http://localhost:5000/face/`)
+      .then((res) => setData(res.data))
+      .then((err) => console.log(err))
+  }
+console.log(optval)
   useEffect(() => {
-    getprods(setData)
-  }, [setData,change])
-  // console.log(data)
-
-  // const handleChange=(e)=>{
-  //   const {name,value} = e.target
-  //   setJsdata({...data,[name]:value})
-  //   }
+    getprods()
+    if(query===""){
+      setSuggest([])
+    }else{
+      let textQuery = query.trim().toLowerCase()
+     let newSuggest = data.filter((el)=>{
+        if(optval==="_id"){
+          return el._id.toLowerCase().indexOf(textQuery)!==-1?true:false
+        }else{
+          return el.title.toLowerCase().indexOf(textQuery)!==-1?true:false
+        }
+      })
+      .map((el)=>el)
+      setSuggest(newSuggest)
+    }
+  }, [change,query])
+ 
   const handleSubmit=(e)=>{
     e.preventDefault();
     axios.post('http://localhost:5000/face/addjson',(JSON.parse(jsdata)))
     .then((res)=>{
       setChange(!change)
-      console.log(res.data)
+      toast({
+        title: 'Product Added.',
+        description: "added product to backend.",
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      })
     })
-    .catch((err)=>console.log(err))
+    .catch((err)=>{
+      toast({
+        title: "error while posting product",
+        description: err.message,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
+    })
   }
+  const queryHandler=useCallback((val)=>{
+    setQuery(val)
+  },[])
+  const optionHandler=useCallback((val)=>{
+    setOptval(val)
+  },[])
+  
 
   return (
-    <div className='admin-products'>
+    <div>
+      <h2>Query</h2>
+      <Searchbar queryHandler={queryHandler} optionHandler={optionHandler} suggest={suggest}/>  
+      <div className='admin-products'>
       <div className='adding-product'>
         <div>
           <form onSubmit={handleSubmit}>
@@ -53,7 +92,12 @@ const Products = () => {
       </div>
       <div className='all-products'>
         {
-          data.length > 0 &&
+          suggest.length>0 ?
+          suggest.map((el) => {
+            return (<div key={Date.now() + Math.random()}>
+              <SingleProd {...el} />
+            </div>)
+          }):
           data.map((el) => {
             return (<div key={Date.now() + Math.random()}>
               <SingleProd {...el} />
@@ -62,6 +106,7 @@ const Products = () => {
         }
       </div>
 
+    </div>
     </div>
   )
 }
