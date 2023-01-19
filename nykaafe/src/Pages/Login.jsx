@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {   Button, Center, Container, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +7,15 @@ import "../css/Login.css"
 const Login = () => {
     const navigate = useNavigate()
     const [data,setData] = useState({})
+    const [auth,setAuth] = useState('')
 
+    
+    useEffect(()=>{
+      if(auth!==''){
+        navigate('/panel')
+    }
+    },[auth])
+console.log(auth)
     const onChangeData=(e)=>{
         const {name,value} = e.target
         setData({...data,[name]:value})
@@ -19,7 +27,7 @@ const Login = () => {
         .then((res)=>{
             if(res.data.token){
                 console.log(res.data)
-                navigate('/panel')
+                setAuth(res.data.token)
             }else{
                 alert("Invalid cred !")
             }
