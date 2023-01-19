@@ -4,7 +4,7 @@ import "./Searchbar.css"
 const Searchbar = ({queryHandler,optionHandler}) => {
     const [input,setInput] = useState('')
     const [option,setOption] = useState('')
-
+    
     const handleInputChange=(e)=>{
         setInput(e.target.value)
     }

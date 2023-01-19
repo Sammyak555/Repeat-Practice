@@ -1,6 +1,7 @@
 import { Textarea, useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useCallback, useEffect, useState } from 'react'
+import Navbar from '../Components/Navbar'
 import Searchbar from '../Components/Searchbar'
 import "../css/Products.css"
 import { SingleProd } from './SingleProd'
@@ -37,7 +38,7 @@ console.log(optval)
       .map((el)=>el)
       setSuggest(newSuggest)
     }
-  }, [change,query])
+  }, [change,query,optval])
  
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -68,10 +69,12 @@ console.log(optval)
   const optionHandler=useCallback((val)=>{
     setOptval(val)
   },[])
-  
+  console.log(data)
+  console.log(query)
 
   return (
     <div>
+      <Navbar />
       <h2>Query</h2>
       <Searchbar queryHandler={queryHandler} optionHandler={optionHandler} suggest={suggest}/>  
       <div className='admin-products'>

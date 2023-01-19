@@ -1,12 +1,35 @@
+import { HiOutlineHome } from 'react-icons/hi'
+import { AiFillDatabase } from 'react-icons/ai'
+import { FaUsers } from 'react-icons/fa'
+import { MdAdminPanelSettings } from 'react-icons/md'
+import { Icon, Link } from '@chakra-ui/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import "./panelNavbar.css"
+import "./adminNavbar.css"
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className='panelnav'>
-        <Link to={'/products'}><img src='https://nykaa-clone.itechscripts.com/admin/assets/img/pages/clipart0.png' alt=''></img>Products</Link>
-        <Link to={'/users'}><img src='https://nykaa-clone.itechscripts.com/admin/assets/img/pages/clipart2.png' alt=''></img>Users</Link>
+    <div className='adminNavbar'>
+    <div className='navicon-cont'>
+        <div className='nav-icons'>
+            {/* MdAdminPanelSettings */}
+            <NavLink to={'/panel'}><Icon as={HiOutlineHome} w={6} h={6} /></NavLink>
+        </div>
+        <div className='nav-icons'>
+       <NavLink to="/products"> <Icon as={AiFillDatabase} w={6} h={6} /></NavLink>
+        </div>
+        <div className='nav-icons'>
+        <NavLink to={'/users'}><Icon as={FaUsers} w={6} h={6} /></NavLink>
+        </div>
+    </div>
+    <div className='user-admin'>
+        <div>
+            <h3>Sammyak</h3>
+        </div>
+        <div>
+        <Icon as={MdAdminPanelSettings} w={8} h={8} />
+        </div>
+    </div>
     </div>
   )
 }
