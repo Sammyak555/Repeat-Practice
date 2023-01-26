@@ -7,9 +7,17 @@ window.addEventListener('load',function(){
     let count=document.getElementById("item_count")
     count.innerHTML=`Items:${list.length}`
 })
+let lth = document.getElementById("lth")
+lth.addEventListener('click',async function(){
+    let data=await getdata()
+    let srtlist=data.sort((a,b)=>{
+        return a.price-b.price
+    })
+    append(srtlist)
+})
 async function main(){
     let data=await getdata()
-    console.log(data)
+    // console.log(data)
      append(data)
 }
 
