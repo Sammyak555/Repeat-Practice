@@ -1,5 +1,6 @@
 let list = JSON.parse(localStorage.getItem("items"))||[]
-
+let total = document.getElementById('cart_total')
+total.innerHTML="total:"
 function cartpage(){
     console.log(list)
     let container = document.getElementById('cart')
@@ -16,7 +17,6 @@ function cartpage(){
         let btn = document.createElement('button')
         btn.innerText="Remove"
         btn.setAttribute("class","remove")
-
         btn.addEventListener('click',function(){
             removeitem(index)
         })
