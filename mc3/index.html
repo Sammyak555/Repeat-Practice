@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pract</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="container">
+        <form>
+            <select name="type" id="type">
+                <option value="table">table</option>
+                <option value="bed">bed</option>
+                <option value="chair">chair</option>
+            </select>
+            <select id="year">
+                <option value="2012">2012</option>
+                <option value="2015">2015</option>
+                <option value="2020">2020</option>
+            </select>
+            <input type="text" id="desc" placeholder="description">
+            <input type="text" id="price" placeholder="price">
+            <input type="submit" id="myBtn">
+        </form>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="otpbox">
+                    <input type="text" id="otp" maxlength="1">
+                    <input type="text" id="otp" maxlength="1">
+                    <input type="text" id="otp" maxlength="1">
+                    <input type="text" id="otp" maxlength="1">
+                    </div>
+                    <button id="verify">verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./index.js"></script>

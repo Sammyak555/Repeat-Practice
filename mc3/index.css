@@ -1,0 +1,14 @@
+#container{
+    width: 150px;
+    margin: auto;
+    margin-top: 40px;
+}
+.modal{
+    display: none;
+}
+.otpbox{
+    display: flex;
+}
+.otpbox>input{
+    width: 18px;
+}
