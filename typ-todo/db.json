@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "react",
+      "state": false
+    },
+    {
+      "id": 2,
+      "title": "redux",
+      "state": false
+    },
+    {
+      "id": 3,
+      "title": "mongo",
+      "state": false
+    },
+    {
+      "status": false,
+      "title": "TypeScript",
+      "id": 4
+    }
+  ]
+}
