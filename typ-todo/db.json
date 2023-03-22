@@ -3,12 +3,14 @@
     {
       "id": 1,
       "title": "react",
-      "state": false
+      "state": false,
+      "status": true
     },
     {
       "id": 2,
       "title": "redux",
-      "state": false
+      "state": false,
+      "status": false
     },
     {
       "id": 3,
@@ -19,6 +21,11 @@
       "status": false,
       "title": "TypeScript",
       "id": 4
+    },
+    {
+      "status": false,
+      "title": "html",
+      "id": 5
     }
   ]
 }

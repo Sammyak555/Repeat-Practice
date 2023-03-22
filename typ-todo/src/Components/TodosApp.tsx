@@ -20,14 +20,23 @@ const TodosApp = () => {
     const onAdd = (todo : Todo) : void => {
         setTodos([...todos,todo])
     }
+    const onUpdate = (updatedTodo : Todo) :void  => {
+        let updatedTodos = todos.map((todo)=>{
+            if(todo.id === updatedTodo.id){
+                return updatedTodo
+            }
+            return todo
+        })
+        setTodos(updatedTodos)
+    }
 
   return (
     <div>
         <h1>Todo App</h1>
-        <TodoInput onAdd = {onAdd} />
+        <TodoInput onAdd = {onAdd}  />
         {
             todos?.map(item => {
-                return <TodoItem  {...item} />
+                return <TodoItem  {...item} onUpdate ={onUpdate}/>
             })
         }
     </div>
