@@ -1,0 +1,8 @@
+.signupbox{
+    border: 1px solid red;
+    width: 180px;
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+    padding: 8px;
+}
